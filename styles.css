@@ -11,8 +11,6 @@ body {
   background-color: grey;
 }
 
-.container {
-}
 
 h1 {
   text-align: center;
@@ -42,5 +40,12 @@ h1 {
   height: 200px;
 }
 
-.chooses .choose img {
+.action-text{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.result{
+  margin: 0 auto;
+  text-align: center;
 }
