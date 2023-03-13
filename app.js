@@ -22,8 +22,13 @@ function convertToWord(letter) {
   return "Kertas";
 }
 
+function convertFontColor(){
+  
+}
+
+
 function win(user, computer) {
-  //fungsi-funsgi untuk nampilin hasil pemenang tiap sesi dan update skor
+  //fungsi-fungsi untuk nampilin hasil pemenang tiap sesi dan update skor
   userScore++;
   const userChoices_div = document.getElementById(user);
   userScore_span.innerHTML = userScore;
@@ -31,12 +36,13 @@ function win(user, computer) {
     mengalahkan
     ${convertToWord(computer)}
     Hore Menang!!`;
-
   userChoices_div.classList.add("green-glow");
+  result_p.classList.add("green-font");
   setTimeout(() => {
     //Contoh pake function arrow function() jadi ()=>
     userChoices_div.classList.remove("green-glow");
-  }, 300);
+    result_p.classList.remove("green-font");
+  }, 500);
 }
 
 function lose(user, computer) {
@@ -49,18 +55,22 @@ function lose(user, computer) {
      Yah Kalah!!`;
 
   userChoices_div.classList.add("red-glow");
+  result_p.classList.add("red-font");
   setTimeout(function () {
     //Contoh default function
     userChoices_div.classList.remove("red-glow");
-  }, 300);
+    result_p.classList.remove("red-font");
+  }, 500);
 }
 function draw(user, computer) {
   const userChoices_div = document.getElementById(user);
   result_p.innerHTML = "--DRAW--";
   userChoices_div.classList.add("yellow-glow");
+  result_p.classList.add("yellow-font");
   setTimeout(() => {
     userChoices_div.classList.remove("yellow-glow");
-  }, 300);
+    result_p.classList.remove("yellow-font");
+  }, 500);
 }
 
 function game(userChoice) {
