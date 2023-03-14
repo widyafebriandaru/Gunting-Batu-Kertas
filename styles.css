@@ -47,10 +47,7 @@ h1 {
   max-width: 100%;
 }
 
-.action-text {
-  margin: 0 auto;
-  text-align: center;
-}
+
 
 .result {
   margin: 0 auto;
@@ -61,7 +58,17 @@ h1 {
 }
 
 
+.action-text {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 4rem;
+}
 
+.action-visible {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 4rem;
+}
 
 .green-glow {
   border: 4px solid rgb(29, 219, 29);

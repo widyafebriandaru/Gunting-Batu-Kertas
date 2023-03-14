@@ -7,6 +7,7 @@ const result_p = document.querySelector(".result > p");
 const gunting_div = document.getElementById("gunting");
 const batu_div = document.getElementById("batu");
 const kertas_div = document.getElementById("kertas");
+const action_p = document.querySelector(".action-text > p");
 
 function getComputerChoice() {
   //FUNGSI UNTUK BIKIN CHOICES COMPUTER
@@ -22,10 +23,7 @@ function convertToWord(letter) {
   return "Kertas";
 }
 
-function convertFontColor(){
-  
-}
-
+function convertFontColor() {}
 
 function win(user, computer) {
   //fungsi-fungsi untuk nampilin hasil pemenang tiap sesi dan update skor
@@ -42,7 +40,10 @@ function win(user, computer) {
     //Contoh pake function arrow function() jadi ()=>
     userChoices_div.classList.remove("green-glow");
     result_p.classList.remove("green-font");
-  }, 500);
+  }, 300);
+  if (userScore >= 5 || computerScore >= 5) {
+    reset();
+  }
 }
 
 function lose(user, computer) {
@@ -60,7 +61,10 @@ function lose(user, computer) {
     //Contoh default function
     userChoices_div.classList.remove("red-glow");
     result_p.classList.remove("red-font");
-  }, 500);
+  }, 300);
+  if (userScore >= 5 || computerScore >= 5) {
+    reset();
+  }
 }
 function draw(user, computer) {
   const userChoices_div = document.getElementById(user);
@@ -70,7 +74,15 @@ function draw(user, computer) {
   setTimeout(() => {
     userChoices_div.classList.remove("yellow-glow");
     result_p.classList.remove("yellow-font");
-  }, 500);
+  }, 300);
+}
+
+function reset() {
+  //Apabila total skor player / computer sudah mencapai 5 points
+  action_p.innerHTML = "Game Berakhir";
+  setTimeout(() => {
+    stop();
+  }, 3500);
 }
 
 function game(userChoice) {
@@ -96,7 +108,6 @@ function game(userChoice) {
       break;
   }
 }
-
 function main() {
   //fungsi untuk nentuin pilihan pelayer berdasarkan klik, dan game("") akan di pass jad userChoice
   gunting_div.addEventListener("click", () => {
@@ -107,4 +118,12 @@ function main() {
   });
   kertas_div.addEventListener("click", () => game("kertas")); //Contoh oneliner tanpa curlybraces
 }
+
 main();
+function stop() {
+  location.reload();
+}
+
+// if (userScore_span.textContent=5){
+//   action_p.innerHTML("HORE MENANG");
+//   }
